@@ -281,7 +281,7 @@ def predictSingle(df):
     preds = torch.zeros((len(predict_data), 1), dtype=torch.float32, device=device)
 
     for fold in range(5):
-        model_path = f'model_{fold + 1}.pth'
+        model_path = f'weights/model_{fold + 1}.pth'
         model = torch.load(os.path.join("model", model_path), map_location=torch.device('cpu'))
         # efficientnet_pytorch version 0.6 fixes attribute error
         model.eval()

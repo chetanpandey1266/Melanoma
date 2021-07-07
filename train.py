@@ -310,7 +310,7 @@ def train():
     for fold, (train_idx, val_idx) in enumerate(skf.split(X=np.zeros(len(train_df)), y=train_df['target'], groups=train_df['patient_id'].tolist()), 1):
         print('=' * 20, 'Fold', fold, '=' * 20)  
         
-        model_path = f'model_{fold}.pth'  # Path and filename to save model to
+        model_path = f'weights/model_{fold}.pth'  # Path and filename to save model to
         best_val = 0  # Best validation score within this fold
         patience = es_patience  # Current patience counter
         arch = EfficientNet.from_pretrained('efficientnet-b1')
